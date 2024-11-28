@@ -2,7 +2,8 @@ const express = require("express");
 const socketio = require("socket.io");
 const http = require("http");
 const path = require("path");
-
+require('dotenv').config();
+const PORT = process.env.PORT || 3000;
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
@@ -28,6 +29,6 @@ app.get("/", function (req, res) {
   res.render("index");
 });
 
-server.listen(8000, () => {
+server.listen(PORT, () => {
   console.log("Server Start");
 });
